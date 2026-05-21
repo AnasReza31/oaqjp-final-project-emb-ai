@@ -17,7 +17,17 @@ def emotion_detector(textArg):
             'sadness': None,
             'dominant_emotion': None
         }
-    
+    elif response.status_code == 400:
+        return {
+            "anger": None,
+            "disgust": None,
+            "fear": None,
+            "joy": None,
+            "sadness": None,
+            "dominant_emotion": None
+        }
+
+
     formatted_res = json.loads(response.text)        
     predictions = formatted_res.get("emotionPredictions")
     emotions = predictions[0]["emotion"] 
